@@ -6,6 +6,10 @@ import { FlatList } from 'react-native';
 import { Provider } from './index';
 import { RectButton } from 'react-native-gesture-handler';
 
+interface OptionProps {
+    logout?: boolean;
+}
+
 export const Container = styled.View`
     flex: 1;
 `;
@@ -32,70 +36,37 @@ export const Username = styled.Text`
     font-family: 'RobotoSlab-Medium';
 `;
 
-export const ProfileButton = styled.TouchableOpacity`
-`;
-
 export const UserAvatar = styled.Image`
     width: 56px;
     height: 56px;
     border-radius: 28px;
 `;
 
-export const ProvidersList = styled(FlatList as new () => FlatList<Provider>)`
-    padding: 32px 20px 16px;
-`;
-
-export const ProviderInfo = styled.View`
-    flex: 1;
-    margin-left: 20px;
-`;
-
-export const ProviderContainer = styled(RectButton)`
+export const OptionButton = styled(RectButton)`
     background: #3E3B47;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 16px;
-    flex-direction: row;
-    align-items: center;
+    padding: 12px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
 `;
 
-export const ProviderAvatar = styled.Image`
-    width: 72px;
-    height: 72px;
-    border-radius: 36px;
-`;
-
-export const ProviderName = styled.Text`
+export const OptionName = styled.Text<OptionProps>`
     font-family: 'RobotoSlab-Medium';
     font-size: 18px;
-    color: #F4EDE8;
+    color: ${(props) => props.logout ? '#E60005' : '#F4EDE8'};
+    text-align: center;
 `;
 
-export const ProviderMeta = styled.View`
-    flex-direction: row;
-    align-items: center;
-    margin-top: 8px;
-`;
-
-export const ProviderMetaText = styled.Text`
-    margin-left: 8px;
-    color: #999591;
-    font-family: 'RobotoSlab-Regular';
-`;
-
-export const ProvidersListTitle = styled.Text`
+export const MenuTitle = styled.Text`
     margin-bottom: 24px;
+    margin-top: 24px;
     color: #F4EDE8;
     font-family: 'RobotoSlab-Regular';
     font-size: 24px;
     text-align: center;
 `;
 
-export const ProvidersListFooterTitle = styled.Text`
-    margin-bottom: 60px;
-    align-items: center;
-    color: #F4EDE8;
-    font-family: 'RobotoSlab-Regular';
-    font-size: 16px;
-    text-align: center;
+export const BackButton = styled.TouchableOpacity`
+    
 `;
